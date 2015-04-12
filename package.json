@@ -1,0 +1,30 @@
+{
+  "name": "nodeDash",
+  "version": "1.0.0",
+  "description": "myDash with node, react.js, and twitter",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/designmarz/nodeDash.git"
+  },
+  "keywords": [
+    "dashboard",
+    "node",
+    "twitter"
+  ],
+  "author": "Nick Marazzo, Will Simmons, Leo Torres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/designmarz/nodeDash/issues"
+  },
+  "homepage": "https://github.com/designmarz/nodeDash",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "express": "^4.12.3",
+    "method-override": "^2.3.2",
+    "morgan": "^1.5.2"
+  }
+}
