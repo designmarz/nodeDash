@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>dashMe</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+<% flash.each do |key, value| %>
+  <% if key == "notice" %>
+    <%= content_tag :div, value, class: "text-center alert alert-warning" %>
+  <% elsif key == "alert" %>
+    <%= content_tag :div, value, class: "text-center alert alert-danger" %>
+  <% else %>
+    <%= content_tag :div, value, class: "text-center alert alert-success" %>
+  <% end %>
+<% end %>
+
+
+
+<div class="dragContainer" id="dragContainer">
+<%= render 'shared/aboutUs' %>
+<%= render 'shared/twitterconnect' %>
+<% if current_user %>
+<%= render 'shared/twitterFeed' %>
+<%= render 'shared/clock' %>
+<%= render 'shared/todo' %>
+<%= render 'shared/weather' %>
+<%= render 'shared/newTweet' %>
+<%= yield %>
+<%= render 'shared/greeting' %>
+<%= render 'shared/quote' %>
+<%= render 'shared/options' %>
+<% end %>
+</div>
+</body>
+</html>
