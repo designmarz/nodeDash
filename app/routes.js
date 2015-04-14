@@ -1,12 +1,15 @@
 //routes.js
 module.exports = function(app, passport) {
-  //gateway page
-  app.get('/', function(req, res) {
+  
+  app.get('/', function(req, res) {   
+    //i'm thinking for home we use this in case they don't authenticate with twitter, 
+    //just the streaming app along with the location based twitter feed
     res.render('index.ejs'); // load the index.ejs file
   });
   
   // app.get('/main', function(req, res) {
-  //   res.render('main.ejs'); // the app file itself?
+  //   res.render('main.ejs'); // i'm thinking this is the route where we have twitter authentication and just 
+  //rely on that, defaulting to index if no twitter info..what do you think 
   // });
 
   //login
@@ -23,7 +26,8 @@ module.exports = function(app, passport) {
   
   //signup aka new user
   app.get('/signup', function(req, res) {   
-        res.render('signup.ejs', { message: req.flash('signupMessage') });
+        res.render('signup.ejs');
+        // , { message: req.flash('signupMessage') });
   });
 
   app.post('/signup', passport.authenticate('local-signup', {
