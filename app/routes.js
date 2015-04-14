@@ -13,14 +13,24 @@ module.exports = function(app, passport) {
   app.get('/login', function(req, res) {
     res.render('login.ejs', { message: req.flash('loginMessage') }); 
   });
-  // app.post('/login', do all our passport stuff here);
+
+  app.post('/login', passport.authenticate('local-login', {
+    successRedirect : '/profile', // redirect to the secure profile section
+    failureRedirect : '/login', // redirect back to the signup page if there is an error
+    failureFlash : true // allow flash messages
+  }));
+
   
   //signup aka new user
   app.get('/signup', function(req, res) {   
         res.render('signup.ejs', { message: req.flash('signupMessage') });
   });
 
-  // app.post('/signup', do all our passport stuff here);
+   app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect : '/profile', // redirect to the secure profile section
+        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+  }));
 
   //profile - user data
   app.get('/profile', isLoggedIn, function(req, res) {
