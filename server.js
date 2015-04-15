@@ -26,7 +26,7 @@ app.use(cookieParser());  //set up cookies
 app.use(session({ secret: 'NodeDashMePleaseWork' })); //will need for user authentication
 app.use(passport.initialize()); 
 app.use(passport.session());//user persistence
-// require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 
 // db setup
 mongoose.connect(configdb.url); // connect to our database

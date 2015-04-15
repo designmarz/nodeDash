@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
   });
 
   app.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/profile', // redirect to the secure profile section
+    successRedirect : '/', // redirect to the secure profile section *eventually, send to hello first
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
@@ -30,8 +30,8 @@ module.exports = function(app, passport) {
         // , { message: req.flash('signupMessage') });
   });
 
-  app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/profile', // redirect to the secure profile section
+  app.post('/signup', passport.authenticate('local-login', {
+        successRedirect : '/', // redirect to the secure profile section *eventually, send to hello world first
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
   }));
