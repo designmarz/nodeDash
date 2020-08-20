@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/designmarz/nodeDash",
   "dependencies": {
-    "bcrypt": "^0.8.2",
+    "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.12.2",
     "browserify": "^9.0.8",
